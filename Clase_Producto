@@ -1,0 +1,60 @@
+public class Producto {
+    private String codigo;
+    private String nombre;
+    private String descripcion;
+    private double precioBase;
+    private double precioVenta;
+    private String categoria;
+    private int cantidadDisponible;
+
+    public Producto(String codigo, String nombre, String descripcion, double precioBase, double precioVenta, String categoria, int cantidadDisponible) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precioBase = precioBase;
+        this.precioVenta = precioVenta;
+        this.categoria = categoria;
+        this.cantidadDisponible = cantidadDisponible;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setPrecioBase(double precioBase) {
+        this.precioBase = precioBase;
+    }
+
+    public void setPrecioVenta(double precioVenta) {
+        this.precioVenta = precioVenta;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setCantidadDisponible(int cantidadDisponible) {
+        this.cantidadDisponible = cantidadDisponible;
+    }
+
+  
+    public String toString() {
+        return "Producto{" +
+                "codigo='" + codigo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", precioBase=" + precioBase +
+                ", precioVenta=" + precioVenta +
+                ", categoria='" + categoria + '\'' +
+                ", cantidadDisponible=" + cantidadDisponible +
+                '}';
+    }
+}
