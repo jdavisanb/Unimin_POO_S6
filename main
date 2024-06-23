@@ -1,0 +1,87 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        ProductoController controller = new ProductoController();
+        Scanner scanner = new Scanner(System.in);
+        String codigo, nombre, descripcion, categoria;
+        double precioBase, precioVenta;
+        int cantidadDisponible;
+        int opcion;
+
+        do {
+            System.out.println("Gestión de Inventario de KD-Electronics");
+            System.out.println("1. Crear Producto");
+            System.out.println("2. Leer Producto");
+            System.out.println("3. Actualizar Producto");
+            System.out.println("4. Eliminar Producto");
+            System.out.println("5. Salir");
+            System.out.print("Seleccione una opción: ");
+            opcion = scanner.nextInt();
+            scanner.nextLine(); // Consumir nueva línea
+
+            switch (opcion) {
+                case 1:
+                    System.out.print("Código: ");
+                    codigo = scanner.nextLine();
+                    System.out.print("Nombre: ");
+                    nombre = scanner.nextLine();
+                    System.out.print("Descripción: ");
+                    descripcion = scanner.nextLine();
+                    System.out.print("Precio Base: ");
+                    precioBase = scanner.nextDouble();
+                    System.out.print("Precio Venta: ");
+                    precioVenta = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.print("Categoría: ");
+                    categoria = scanner.nextLine();
+                    System.out.print("Cantidad Disponible: ");
+                    cantidadDisponible = scanner.nextInt();
+                    scanner.nextLine(); 
+                    controller.createProducto(codigo, nombre, descripcion, precioBase, precioVenta, categoria, cantidadDisponible);
+                    break;
+                case 2:
+                    System.out.print("Código: ");
+                    codigo = scanner.nextLine();
+                    Producto producto = controller.readProducto(codigo);
+                    if (producto != null) {
+                        System.out.println(producto);
+                    } else {
+                        System.out.println("Producto no encontrado");
+                    }
+                    break;
+                case 3:
+                    System.out.print("Código: ");
+                    codigo = scanner.nextLine();
+                    System.out.print("Nombre: ");
+                    nombre = scanner.nextLine();
+                    System.out.print("Descripción: ");
+                    descripcion = scanner.nextLine();
+                    System.out.print("Precio Base: ");
+                    precioBase = scanner.nextDouble();
+                    System.out.print("Precio Venta: ");
+                    precioVenta = scanner.nextDouble();
+                    scanner.nextLine(); 
+                    System.out.print("Categoría: ");
+                    categoria = scanner.nextLine();
+                    System.out.print("Cantidad Disponible: ");
+                    cantidadDisponible = scanner.nextInt();
+                    scanner.nextLine(); 
+                    controller.updateProducto(codigo, nombre, descripcion, precioBase, precioVenta, categoria, cantidadDisponible);
+                    break;
+                case 4:
+                    System.out.print("Código: ");
+                    codigo = scanner.nextLine();
+                    controller.deleteProducto(codigo);
+                    break;
+                case 5:
+                    System.out.println("Saliendo del sistema...");
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+            }
+        } while (opcion != 5);
+
+        scanner.close();
+    }
+}
